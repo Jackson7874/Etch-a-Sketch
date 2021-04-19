@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Etch-a-Sketch</title>
+        <link type="text/css" rel="stylesheet" href="style.css">
+        <script src="https://kit.fontawesome.com/086ab59746.js" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <div class="buttonDiv">
+            <input type="button" value="Custom Grid" class="customGridButton" id="customGridButton">
+        </div>
+        <div class="popUp" id="popUp">
+            <div class="popUpContent">
+                <div class="exitButton" id="exitButton">
+                    <i class="fas fa-times exit"></i>
+                </div>
+                <label for="newGrid" class="labels">Grid Size:</label>
+                <input type="number" name="newGrid" class="inputs" id="newGrid">
+                <input type="button" class="submitButton" id="submitButton" value="Generate" tabindex="0">
+                <span class="disclaimer">Disclaimer: Min size is 4x4! & Max size is 100x100</span>
+            </div>
+        </div>
+        <div class="gridContainer" id="gridContainer">
+        </div>
+    </body>
+    <script type="text/javascript" src="script.js"></script>
+</html>
