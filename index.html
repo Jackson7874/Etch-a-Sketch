@@ -9,7 +9,8 @@
     </head>
     <body>
         <div class="buttonDiv">
-            <input type="button" value="Custom Grid" class="customGridButton" id="customGridButton">
+            <input type="button" class="customGridButton" id="clearButton" value="Clear" tabindex="0">
+            <input type="button" class="customGridButton" id="submitButton" value="Generate" tabindex="0">
         </div>
         <div class="popUp" id="popUp">
             <div class="popUpContent">
@@ -19,7 +20,7 @@
                 <label for="newGrid" class="labels">Grid Size:</label>
                 <input type="number" name="newGrid" class="inputs" id="newGrid">
                 <input type="button" class="submitButton" id="submitButton" value="Generate" tabindex="0">
-                <span class="disclaimer">Disclaimer: Min size is 4x4! & Max size is 100x100</span>
+                <span class="disclaimer">Disclaimer: Min size is 4x4 & Max size is 100x100!</span>
             </div>
         </div>
         <div class="gridContainer" id="gridContainer">

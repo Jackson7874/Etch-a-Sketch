@@ -3,10 +3,12 @@ html, body, p, div {
     padding: 0;
 }
 
+* {
+    box-sizing: border-box;
+}
+
 body {
-    display: flex;
-    flex-wrap: wrap;
-    background-color: rgb(45, 45, 45);
+    background-color: skyblue;
 }
 
 .buttonDiv {
@@ -19,6 +21,7 @@ body {
 .customGridButton {
     background-color: seagreen;
     border: solid 3px white;
+    border-radius: 50px;
     outline: none;
     color: white;
     font-size: 24px;
@@ -28,23 +31,20 @@ body {
 
 .customGridButton:hover {
     cursor: pointer;
-    background-color: skyblue;
+    background-color: purple;
 }
 
 .gridContainer {
+    display: grid;
     margin: 10px auto;
-    background-color: gray;
-    border: solid 5px black;
-    min-width: 555px;
-    min-height: 555px;
-    max-width: 555px;
-    max-height: 555px;
+    background-color: white;
+    border: solid 4px black;
+    min-height: 550px;
+    max-width: 550px;
 }
 
 .gridCell {
-    float: left;
-    margin: 1px;
-    outline: solid 2px black;
+    border: solid 1px black;
 }
 
 .popUp {
