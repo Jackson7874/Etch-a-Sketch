@@ -9,8 +9,21 @@
     </head>
     <body>
         <div class="buttonDiv">
+            <input type="button" class="customGridButton" id="customGridButton" value="Generate" tabindex="0">
             <input type="button" class="customGridButton" id="clearButton" value="Clear" tabindex="0">
-            <input type="button" class="customGridButton" id="submitButton" value="Generate" tabindex="0">
+        </div>
+        <div class="settingsBar" id="settingsBar">
+            <input type="checkbox" class="box" id="box1" name="box1" value="draw">
+            <label for="box1" class="boxText">Draw</label>
+            <input type="radio" class="box" id="box2" name="boxes" value="rainbow">
+            <label for="box2" class="boxText">Rainbow</label>
+            <input type="radio" class="box" id="box3" name="boxes" value="color">
+            <label for="box3" class="boxText">Color</label>
+            <input type="color" class="colorPicker" id="colorPicker" name="colorPicker">
+            <input type="radio" class="box" id="box4" name="boxes" value="black">
+            <label for="box4" class="boxText">Black</label>
+            <input type="radio" class="box" id="box5" name="boxes" value="eraser">
+            <label for="box5" class="boxText">Eraser</label>
         </div>
         <div class="popUp" id="popUp">
             <div class="popUpContent">

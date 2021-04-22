@@ -3,26 +3,22 @@ html, body, p, div {
     padding: 0;
 }
 
-* {
-    box-sizing: border-box;
-}
-
 body {
-    background-color: skyblue;
+    background-color: #ff4d4d;
 }
 
 .buttonDiv {
     display: flex;
-    justify-content: center;
-    width: 100%;
-    margin: 25px;
+    justify-content: space-evenly;
+    width: 550px;
+    margin: 15px auto;
 }
 
 .customGridButton {
-    background-color: seagreen;
+    background-color: #2c2c2c;
     border: solid 3px white;
-    border-radius: 50px;
-    outline: none;
+    outline: solid 3px white;
+    outline-offset: -3px;
     color: white;
     font-size: 24px;
     width: 200px;
@@ -31,7 +27,12 @@ body {
 
 .customGridButton:hover {
     cursor: pointer;
-    background-color: purple;
+    background-color: white;
+    border-color: #2c2c2c;
+    color: #2c2c2c;
+    outline-color: #2c2c2c;
+    outline-offset: -9px;
+    transition: ease 150ms;
 }
 
 .gridContainer {
@@ -41,10 +42,11 @@ body {
     border: solid 4px black;
     min-height: 550px;
     max-width: 550px;
+    box-shadow: 0 0 10px black;
 }
 
 .gridCell {
-    border: solid 1px black;
+    border: solid 0px black;
 }
 
 .popUp {
@@ -116,4 +118,30 @@ body {
     font-size: 12px;
     margin-top: 10px;
     color: red;
+}
+
+.settingsBar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 16px;
+    width: 545px;
+    margin: 5px auto;
+    padding: 5px;
+    background-color: #2c2c2c;
+    border: solid 2px white;
+    color: white;
+}
+
+.box {
+    width: 25px;
+    height: 25px;
+    border: solid 2px white;
+    background-color: transparent;
+}
+
+.colorPicker {
+    width: 25px;
+    height: 25px;
 }

@@ -1,10 +1,12 @@
 const gridContainer = document.getElementById('gridContainer');
 
-const originalGridSize = 16;
+let originalGridSize = 16;
 const minGridSize = 4;
 const maxGridSize = 100;
+const boxes = 4;
 
-const clearGridButton = document.getElementsById('clearButton')
+const clearGridButton = document.getElementById('clearButton');
+    clearGridButton.addEventListener('click', createDefaultGrid);
 const customGridbutton = document.getElementById('customGridButton');
     customGridbutton.addEventListener('click', popUpDisplay);
 const popUp = document.getElementById('popUp');
@@ -13,6 +15,16 @@ const exitPopUpButton = document.getElementById('exitButton');
 const newGridInput = document.getElementById('newGrid');
 const generateButton = document.getElementById('submitButton');
     generateButton.addEventListener('click', createNewGrid);
+
+const settingsBar = document.getElementById('settingsBar');
+const checkBox = document.getElementById('box1');
+    checkBox.checked = true;
+const rainbow = document.getElementById('box2');
+    rainbow.checked = true;
+const color = document.getElementById('box3');
+const colorPicker = document.getElementById('colorPicker');
+const black = document.getElementById('box4');
+const eraser = document.getElementById('box5');
 
 function popUpDisplay() {
     popUp.style.display = 'block';
@@ -33,7 +45,6 @@ function customInputs() {
     } else {
         gridSize = newGridInput.value;
     }
-
     gridContainer.style.gridTemplateColumns = `repeat(${gridSize}, 1fr)`;
     popUpDisplayExit()
 }
@@ -41,6 +52,7 @@ function customInputs() {
 window.addEventListener('load', createDefaultGrid);
 
 function createDefaultGrid() {
+    clearGrid();
     defaultGridSize(originalGridSize);
     createGridCells(originalGridSize);
 }
@@ -49,11 +61,26 @@ function defaultGridSize(gridSize) {
     gridContainer.style.gridTemplateColumns = `repeat(${gridSize}, 1fr)`;
 }
 
-function rainbow(e) {
-    const R = Math.floor(Math.random() * 256);
-    const G = Math.floor(Math.random() * 256);
-    const B = Math.floor(Math.random() * 256);
-    e.target.style.backgroundColor = `rgb(${R}, ${G}, ${B})`;
+function draw(e) {
+    if (checkBox.checked == true) {
+        if (rainbow.checked == true) {
+            const R = Math.floor(Math.random() * 256);
+            const G = Math.floor(Math.random() * 256);
+            const B = Math.floor(Math.random() * 256);
+            e.target.style.backgroundColor = `rgb(${R}, ${G}, ${B})`;
+        } else if (color.checked == true) {
+            let colorChoice = colorPicker.value;
+            e.target.style.backgroundColor = colorChoice;
+        } else if (black.checked == true) {
+            e.target.style.backgroundColor = `rgb(0, 0, 0)`;
+        } else if (eraser.checked == true) {
+            e.target.style.backgroundColor = `white`;
+        } else {
+            rainbow.checked = true
+        }
+    } else {
+        return
+    }
 }
 
 function createGridCells(gridSize) {
@@ -61,18 +88,9 @@ function createGridCells(gridSize) {
         const gridCell = document.createElement('div');
         gridCell.classList = 'gridCell';
         gridCell.setAttribute('id','gridCell')
-        gridCell.addEventListener('mouseover', rainbow);
+        gridCell.addEventListener('mouseover', draw);
         gridContainer.appendChild(gridCell);
-
-        if (gridSize >= 90) {
-            gridCell.style.borderWidth = '0.1px'
-        } else if (gridSize >= 70) {
-            gridCell.style.borderWidth = '0.25px'
-        } else if (gridSize >= 40) {
-            gridCell.style.borderWidth = '0.5px'
-        } else {
-            gridCell.style.borderWidth = '1px'
-        }
+        originalGridSize = gridSize;
     }
 }
 
