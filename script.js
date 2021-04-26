@@ -26,12 +26,40 @@ const colorPicker = document.getElementById('colorPicker');
 const black = document.getElementById('box4');
 const eraser = document.getElementById('box5');
 
-function popUpDisplay() {
-    popUp.style.display = 'block';
+window.addEventListener('load', createDefaultGrid);
+
+function createDefaultGrid() {
+    clearGrid();
+    defaultGridSize(originalGridSize);
+    createGridCells(originalGridSize);
 }
 
-function popUpDisplayExit() {
-    popUp.style.display = 'none';
+function clearGrid() {
+    const gridArray = Array.from(gridContainer.childNodes);
+    gridArray.forEach((element) => {
+      gridContainer.removeChild(element);
+    });
+}
+
+function defaultGridSize(gridSize) {
+    gridContainer.style.gridTemplateColumns = `repeat(${gridSize}, 1fr)`;
+}
+
+function createGridCells(gridSize) {
+    for (i = 0; i < gridSize * gridSize; i++) {
+        const gridCell = document.createElement('div');
+        gridCell.classList = 'gridCell';
+        gridCell.setAttribute('id','gridCell')
+        gridCell.addEventListener('mouseover', draw);
+        gridContainer.appendChild(gridCell);
+        originalGridSize = gridSize;
+    }
+}
+
+function createNewGrid() {
+    customInputs()
+    clearGrid()
+    createGridCells(gridSize)
 }
 
 function customInputs() {
@@ -49,16 +77,12 @@ function customInputs() {
     popUpDisplayExit()
 }
 
-window.addEventListener('load', createDefaultGrid);
-
-function createDefaultGrid() {
-    clearGrid();
-    defaultGridSize(originalGridSize);
-    createGridCells(originalGridSize);
+function popUpDisplay() {
+    popUp.style.display = 'block';
 }
 
-function defaultGridSize(gridSize) {
-    gridContainer.style.gridTemplateColumns = `repeat(${gridSize}, 1fr)`;
+function popUpDisplayExit() {
+    popUp.style.display = 'none';
 }
 
 function draw(e) {
@@ -81,28 +105,4 @@ function draw(e) {
     } else {
         return
     }
-}
-
-function createGridCells(gridSize) {
-    for (i = 0; i < gridSize * gridSize; i++) {
-        const gridCell = document.createElement('div');
-        gridCell.classList = 'gridCell';
-        gridCell.setAttribute('id','gridCell')
-        gridCell.addEventListener('mouseover', draw);
-        gridContainer.appendChild(gridCell);
-        originalGridSize = gridSize;
-    }
-}
-
-function clearGrid() {
-    const gridArray = Array.from(gridContainer.childNodes);
-    gridArray.forEach((element) => {
-      gridContainer.removeChild(element);
-    });
-}
-
-function createNewGrid() {
-    customInputs()
-    clearGrid()
-    createGridCells(gridSize)
 }
